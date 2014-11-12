@@ -3,63 +3,92 @@
 <head>
 <meta charset="utf-8" />
 <title>Mapamundi - vista</title>
+<!-- BOOTSTRAP -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- /BOOTSTRAP -->
 <link
-	href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold'
 	rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="style.css" type="text/css" media="screen"
 	title="Stylesheet" />
 </head>
 <body>
-	<div id="hd">
-		<h1>MAPAMUNDI</h1>
-	</div>
-	<div id="bd">
-		<h2>Paises</h2>
-		<form wicket:id="paisesJuegoForm">
-			<table>
-				<thead>
-					<tr>
-						<th id="main">Nombre</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr wicket:id="conexiones">
-						<td><span wicket:id="nombre">unNombre</span></td>
-						<td>
-							<div>
-								<button wicket:id="eliminar">Eliminar</button>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</form>
+	<div class="container">	
+	
+	<div class="page-heder">
+			<h1>
+				Carmen San Diego
+			</h1>
+	</div> <!-- Cierra page-heder --> 
 
-		<form wicket:id="paisSeleccionadoForm">
-			<h3>Nombre :</h3>
-			<div>
-				<span wicket:id="paisModel.nombre">nombre del pais</span>
-			</div>
-
-<!-- 			<table> -->
-<!-- 				<thead> -->
-<!-- 					<tr> -->
-<!-- 						<th id="main">Conexiones</th> -->
-<!-- 					</tr> -->
-<!-- 				</thead> -->
-<!-- 				<tbody> -->
-<!-- 					<tr wicket:id="paisModel.conexiones"> -->
-<!-- 						<td><span wicket:id="nombre">unNombre</span></td> -->
-<!-- 						<td> -->
-<!-- 							<div> -->
-<!-- 								<button wicket:id="eliminar">Eliminar</button> -->
-<!-- 							</div> -->
-<!-- 						</td> -->
-<!-- 					</tr> -->
-<!-- 				</tbody> -->
-<!-- 			</table> -->
 		
-		</form>
-	</div>
+		<div class ="row">
+			<div class="col-md-6">
+				<form wicket:id="paisesJuegoForm">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th id="main">Paises</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="conexiones">
+								<td><span wicket:id="nombre">unNombre</span></td>
+								<td>
+									<button class="btn btn-info" 	wicket:id="eliminar">Eliminar</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+		</div> <!-- Cierra Column de listas de paises-->
+		
+		<div class="col-md-6">
+			<h3>Nombre:</h3>
+			<input type="text" /> <!-- wicket:id="nombrePais" --> 
+			
+			<h3>Caracteristias</h3>
+			<ul class="list-group">
+			</ul>
+			<input type="text" />
+			<button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			
+			<h3>Conexiones</h3>	
+			<form>  <!-- wicket:id="paisesJuegoForm" -->
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th id="main">Paises</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>  <!-- wicket:id="conexiones" -->
+								<td><span>unNombre</span></td> <!--  wicket:id="nombre" -->
+								<td>
+									<div>
+										<button class="btn btn-info">Eliminar</button><!-- wicket:id="eliminar" --> 
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				<select class="selectpicker"></select>
+				<button type="button" class="btn btn-default btn-lg">
+  					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+			</div> <!-- Cierra 2 Column -->						
+	</div> <!-- Cierra ROW -->
+  </div>	<!--Cierra Container	 -->
+		
+	
+
+	
 </body>
 </html>

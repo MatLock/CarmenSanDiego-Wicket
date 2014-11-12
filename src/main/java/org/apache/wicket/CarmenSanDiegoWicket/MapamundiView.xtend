@@ -20,6 +20,7 @@ class MapamundiView extends WebPage{
 		
 		new() {
 		this.juego = new Juego
+		this.juegoAppModel = new JuegoAppModel 
 		val Form<Juego> paisesForm = new Form<Juego>("paisesJuegoForm", new CompoundPropertyModel<Juego>(this.juego))
 		this.mostrarListaPaises(paisesForm)
 		//this.nuevoPaisForm(paisesForm)		
@@ -27,12 +28,12 @@ class MapamundiView extends WebPage{
 //-----------------------------------------------------------------------------//
 
 		this.paisAppModel = new PaisApplicationModel(this.juego.seleccionarPrimerPais)
-		val Form<PaisApplicationModel> paisForm = new Form<PaisApplicationModel>("paisSeleccionadoForm", new CompoundPropertyModel<PaisApplicationModel>(this.paisAppModel))
-		this.mostrarNombrePais(paisForm)
+//		val Form<PaisApplicationModel> paisForm = new Form<PaisApplicationModel>("paisSeleccionadoForm", new CompoundPropertyModel<PaisApplicationModel>(this.paisAppModel))
+//		this.mostrarNombrePais(paisForm)
 //		this.mostrarCarateristicasPaisForm(paisForm)
 	//	this.verConexionesPais(paisForm)
 //		this.verLugaresPais(paisForm)		
-		this.addChild(paisForm)
+//		this.addChild(paisForm)
 		
 		}
 	
@@ -62,9 +63,9 @@ class MapamundiView extends WebPage{
 //		form.addChild(new XButton("nuevo").onClick = [| nuevo() ]	)
 //	}
 	
-	def mostrarNombrePais(Form<PaisApplicationModel> form) {
-		form.addChild(new Label("paisModel.nombre"))
-	}
+//	def mostrarNombrePais(Form<PaisApplicationModel> form) {
+//		form.addChild(new Label("paisModel.nombre"))
+//	}
 	
 //	def mostrarCarateristicasPaisForm(Form<PaisApplicationModel> form) {
 //		val listView = new XListView("paisElegido.caracteristicas")
