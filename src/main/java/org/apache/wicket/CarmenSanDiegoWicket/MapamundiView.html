@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+<meta charset="utf-8" />
+<title>Mapamundi - vista</title>
+<link
+	href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold'
+	rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="style.css" type="text/css" media="screen"
+	title="Stylesheet" />
+</head>
+<body>
+	<div id="hd">
+		<h1>MAPAMUNDI</h1>
+	</div>
+	<div id="bd">
+		<h2>Paises</h2>
+		<form wicket:id="paisesJuegoForm">
+			<table>
+				<thead>
+					<tr>
+						<th id="main">Nombre</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr wicket:id="conexiones">
+						<td><span wicket:id="nombre">unNombre</span></td>
+						<td>
+							<div>
+								<button wicket:id="eliminar">Eliminar</button>
+							</div>
+						<td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
