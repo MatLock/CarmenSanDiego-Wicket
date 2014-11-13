@@ -27,7 +27,7 @@ class MapamundiView extends WebPage{
 		this.addChild(paisesForm)
 //-----------------------------------------------------------------------------//
 
-		this.paisAppModel = new PaisApplicationModel(this.juego.seleccionarPrimerPais)
+//		this.paisAppModel = new PaisApplicationModel(this.juego.seleccionarPrimerPais)
 //		val Form<PaisApplicationModel> paisForm = new Form<PaisApplicationModel>("paisSeleccionadoForm", new CompoundPropertyModel<PaisApplicationModel>(this.paisAppModel))
 //		this.mostrarNombrePais(paisForm)
 //		this.mostrarCarateristicasPaisForm(paisForm)

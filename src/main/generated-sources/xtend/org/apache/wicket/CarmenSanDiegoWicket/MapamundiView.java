@@ -38,9 +38,6 @@ public class MapamundiView extends WebPage {
     final Form<Juego> paisesForm = new Form<Juego>("paisesJuegoForm", _compoundPropertyModel);
     this.mostrarListaPaises(paisesForm);
     this._wicketExtensionFactoryMethods.addChild(this, paisesForm);
-    Pais _seleccionarPrimerPais = this.juego.seleccionarPrimerPais();
-    PaisApplicationModel _paisApplicationModel = new PaisApplicationModel(_seleccionarPrimerPais);
-    this.paisAppModel = _paisApplicationModel;
   }
   
   public MarkupContainer mostrarListaPaises(final Form<Juego> form) {

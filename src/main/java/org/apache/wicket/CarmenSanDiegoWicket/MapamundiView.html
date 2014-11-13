@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
 <head>
-<meta charset="utf-8" />
-<title>Mapamundi - vista</title>
-<!-- BOOTSTRAP -->
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<!-- /BOOTSTRAP -->
-<link
-	rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="style.css" type="text/css" media="screen"
-	title="Stylesheet" />
+	<meta charset="utf-8" />
+	<title>Carmen San Diego</title>
+	
+	<!-- BOOTSTRAP -->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- /BOOTSTRAP -->
+	
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  	<link rel="stylesheet" href="/resources/demos/style.css">
+  	<script>
+		  $(function() {
+		    $( "#tabs" ).tabs();
+		  });
+  	</script>
+	
+	
 </head>
+
+
 <body>
 	<div class="container">	
 	
@@ -24,10 +37,16 @@
 				Carmen San Diego
 			</h1>
 	</div> <!-- Cierra page-heder --> 
+	
+	<div id="tabs">
+	<ul>
+	   <li><a href="#tabs-1">Mapamundi</a></li>
+	   <li><a href="#tabs-2">Expedientes</a></li>
+	</ul>
 
-		
+	  	<div id="tabs-1">
 		<div class ="row">
-			<div class="col-md-6">
+			<div class="col-md-6">	
 				<form wicket:id="paisesJuegoForm">
 					<table class="table table-hover">
 						<thead>
@@ -39,19 +58,27 @@
 							<tr wicket:id="conexiones">
 								<td><span wicket:id="nombre">unNombre</span></td>
 								<td>
-									<button class="btn btn-info" 	wicket:id="eliminar">Eliminar</button>
+									<button class="btn btn-danger" wicket:id="eliminar">Eliminar</button>
 								</td>
+								<td>
+									<button class="btn btn-warning" >Editar</button>
+									<!-- AGREGAR ID AL BOTON DE EDITAR-> wicket:id="eliminar" -->
+									
+								</td>
+								
 							</tr>
+							
 						</tbody>
 					</table>
 				</form>
+			<button type="button" class="btn btn-primary">Agregar Pais</button>
 		</div> <!-- Cierra Column de listas de paises-->
 		
 		<div class="col-md-6">
-			<h3>Nombre:</h3>
+			<div class="alert alert-success" role="alert">Nombre</div>
 			<input type="text" /> <!-- wicket:id="nombrePais" --> 
 			
-			<h3>Caracteristias</h3>
+			<div class="alert alert-success" role="alert">Caracteristicas</div>
 			<ul class="list-group">
 			</ul>
 			<input type="text" />
@@ -59,20 +86,17 @@
   				<span class="glyphicon glyphicon-plus"></span>
 			</button>
 			
-			<h3>Conexiones</h3>	
+			<div class="alert alert-success" role="alert">Conexiones</div>
 			<form>  <!-- wicket:id="paisesJuegoForm" -->
 					<table class="table table-hover">
 						<thead>
-							<tr>
-								<th id="main">Paises</th>
-							</tr>
 						</thead>
 						<tbody>
 							<tr>  <!-- wicket:id="conexiones" -->
-								<td><span>unNombre</span></td> <!--  wicket:id="nombre" -->
+								<td></td> <!--  wicket:id="nombre" -->
 								<td>
 									<div>
-										<button class="btn btn-info">Eliminar</button><!-- wicket:id="eliminar" --> 
+										<button class="btn btn-danger">Eliminar</button><!-- wicket:id="eliminar" --> 
 									</div>
 								</td>
 							</tr>
@@ -84,8 +108,107 @@
   					<span class="glyphicon glyphicon-plus"></span>
 				</button>
 			</div> <!-- Cierra 2 Column -->						
+			<button type="button" class="btn btn-success">Aceptar</button>
 	</div> <!-- Cierra ROW -->
-  </div>	<!--Cierra Container	 -->
+    </div>
+   
+   
+   <div id="tabs-2">
+    	<div class ="row">
+			<div class="col-md-6">	
+				<form>  <!-- wicket:id="villanosJuegoForm" -->
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th id="main">Villanos</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr> <!-- wicket:id="conexiones" -->
+								<td><span>El nombre de un villano</span></td> <!-- wicket:id="nombreViallano" -->
+								<td>
+									<button class="btn btn-danger">Eliminar</button> <!-- wicket:id="eliminarVillano" -->
+								</td>
+								<td>
+									<button class="btn btn-warning" >Editar</button>
+									<!-- AGREGAR ID AL BOTON DE EDITAR-> wicket:id="eliminar" -->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			<button type="button" class="btn btn-primary">Agregar Villano</button>
+		</div> <!-- Cierra Column de lista de villanos-->
+   	  
+   	  
+   	  <div class="col-md-6">
+			<div class="alert alert-success" role="alert">Nombre</div>
+			<input type="text" /> <!-- wicket:id="nombreVillano" --> 
+			
+			
+				<div class="alert alert-success" role="alert">Sexo</div>
+			<label class="checkbox-inline">
+  				<input type="checkbox" id="checkboxEnLinea1" value="opcion_1"> Masculino
+			</label>
+			<label class="checkbox-inline">
+  				<input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> Femenino
+			</label>
+			
+			<div class="alert alert-success" role="alert">Señas</div>
+			<form>  <!-- wicket:id="paisesJuegoForm" -->
+					<table class="table table-hover">
+						<thead>
+						</thead>
+						<tbody>
+							<tr>  <!-- wicket:id="señas" -->
+								<td></td> 
+								<td>
+									<div>
+										<button class="btn btn-danger">Eliminar</button><!-- wicket:id="eliminar" --> 
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				
+				<input type="text" />
+					<button type="button" class="btn btn-default btn-lg">
+  						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+				
+				
+				
+				
+			<div class="alert alert-success" role="alert">Hobbies</div>
+			<form>  <!-- wicket:id="villanosJuegoForm" -->
+					<table class="table table-hover">
+						<thead>
+						</thead>
+						<tbody>
+							<tr>  <!-- wicket:id="hobbies" -->
+								<td></td> 
+								<td>
+									<div>
+										<button class="btn btn-danger">Eliminar</button><!-- wicket:id="eliminarHobbie" --> 
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				<input type="text">
+				<button type="button" class="btn btn-default btn-lg">
+  					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+				<button type="button" class="btn btn-success">Aceptar</button>
+			</div> <!-- Cierra 2 Column -->						
+		 </div><!-- Cierra Row de villanos -->
+   </div> <!-- Cierra tabs 2 -->
+   
+   </div> <!-- Cierra tabs -->
+   
+  </div> <!--Cierra Container	 -->
 		
 	
 
