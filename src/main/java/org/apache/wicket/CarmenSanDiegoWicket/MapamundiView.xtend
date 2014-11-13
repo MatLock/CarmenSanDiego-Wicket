@@ -21,7 +21,7 @@ class MapamundiView extends WebPage{
 		new() {
 		this.juego = new Juego
 		this.juegoAppModel = new JuegoAppModel 
-		val Form<Juego> paisesForm = new Form<Juego>("paisesJuegoForm", new CompoundPropertyModel<Juego>(this.juego))
+		val Form<Juego> paisesForm = new Form<Juego>("paisesJuegoForm", new CompoundPropertyModel<Juego>(this.juegoAppModel.juego))
 		this.mostrarListaPaises(paisesForm)
 		//this.nuevoPaisForm(paisesForm)		
 		this.addChild(paisesForm)
