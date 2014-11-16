@@ -74,10 +74,10 @@
 		</div> <!-- Cierra Column de listas de paises-->
 		
 		<div class="col-md-6">
-			<form wicket:id="paisSeleccionadoForm">
+
 			<div class="alert alert-success" role="alert">Nombre</div>
-			<input type="text" wicket:id="paisModel.nombre" /> 
-			</form>
+			<input type="text" /> <!--  wicket:id="paisModel.nombre"-->  
+
 			<div class="alert alert-success" role="alert">Caracteristicas</div>
 			<ul class="list-group">
 			</ul>
@@ -116,7 +116,7 @@
    <div id="tabs-2">
     	<div class ="row">
 			<div class="col-md-6">	
-				<form>  <!-- wicket:id="villanosJuegoForm" -->
+				<form wicket:id="villanosJuegoForm">
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -124,20 +124,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr> <!-- wicket:id="conexiones" -->
-								<td><span>El nombre de un villano</span></td> <!-- wicket:id="nombreViallano" -->
+							<tr wicket:id="villanos" >
+								<td><span wicket:id="nombre"> El nombre de un villano </span></td>
 								<td>
-									<button class="btn btn-danger">Eliminar</button> <!-- wicket:id="eliminarVillano" -->
+									<button class="btn btn-danger" wicket:id="eliminar">Eliminar</button> <!-- wicket:id="eliminarVillano" -->
 								</td>
 								<td>
-									<button class="btn btn-warning" >Editar</button>
+									<button class="btn btn-warning" wicket:id="editar">Editar</button>
 									<!-- AGREGAR ID AL BOTON DE EDITAR-> wicket:id="eliminar" -->
 								</td>
 							</tr>
 						</tbody>
 					</table>
-				</form>
-			<button type="button" class="btn btn-primary">Agregar Villano</button>
+				<button class="btn btn-primary" wicket:id="nuevo">Agregar Villano</button>
+			</form>
 		</div> <!-- Cierra Column de lista de villanos-->
    	  
    	  

@@ -11,7 +11,7 @@ import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
 import pais.Pais
 import pais.PaisApplicationModel
-import org.apache.wicket.markup.html.form.TextField
+import persona.Villano
 
 class MapamundiView extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -20,21 +20,29 @@ class MapamundiView extends WebPage {
 
 	new() {
 		this.juegoAppModel = new JuegoAppModel
-		val Form<Juego> paisesForm = new Form<Juego>("paisesJuegoForm",
-			new CompoundPropertyModel<Juego>(this.juegoAppModel.juego))
+		val Form<Juego> paisesForm = new Form<Juego>("paisesJuegoForm", new CompoundPropertyModel<Juego>(this.juegoAppModel.juego))
 		this.mostrarListaPaises(paisesForm)
 		this.nuevoPaisForm(paisesForm)
 		this.addChild(paisesForm)
 
 	//<--------------------------------------------------------------------------------------------->
-	//		val Form<PaisApplicationModel> paisSeleccionadoForm = new Form<PaisApplicationModel>("paisSeleccionadoForm",
-	//		this.paisAppModel.asCompoundModel)
-	//		this.editarNombre(paisSeleccionadoForm)
-	//		this.editarCaracteristicas(paisSeleccionadoForm)
-	//		this.editarConexiones(paisSeleccionadoForm)
-	//		this.editarLugares(paisSeleccionadoForm)
-	//		this.aceptar()
+
+//		val Form<PaisApplicationModel> paisSeleccionadoForm = new Form<PaisApplicationModel>("paisSeleccionadoForm",
+//			this.paisAppModel.asCompoundModel)
+//		    this.editarNombre(paisSeleccionadoForm)
+//			this.editarCaracteristicas(paisSeleccionadoForm)
+//			this.editarConexiones(paisSeleccionadoForm)
+//			this.editarLugares(paisSeleccionadoForm)
+//			this.aceptar()
+//			this.addChild(paisSeleccionadoForm)
+
+		val Form<Juego> villanosForm = new Form<Juego>("villanosJuegoForm", new CompoundPropertyModel<Juego>(this.juegoAppModel.juego))
+		this.mostrarListaVillanos(villanosForm)
+		this.nuevoVillanoForm(villanosForm)
+		this.addChild(villanosForm)
 	}
+	
+	
 
 	def mostrarListaPaises(Form<Juego> form) {
 		val listView = new XListView("conexiones")
@@ -50,29 +58,42 @@ class MapamundiView extends WebPage {
 			item.addChild(
 				new XButton("editar").onClick = [ |
 					paisAppModel.paisModel = item.modelObject
-					this.editarPais(paisAppModel.paisModel)
+					
 				])
 		]
 		form.addChild(listView)
 	}
 
 	def nuevoPaisForm(Form<Juego> form) {
-		form.addChild(new XButton("nuevo").onClick = [|form.modelObject.agregarPais(new Pais("Definir nombre"))])
+		form.addChild(new XButton("nuevo").onClick = [|form.modelObject.agregarPais(new Pais("*Definir nombre*"))])
 	}
 	
-	def editarPais(Pais pais) {
-		var Form<PaisApplicationModel> paisSeleccionadoForm = new Form<PaisApplicationModel>(
-			"paisSeleccionadoForm",	new CompoundPropertyModel<PaisApplicationModel>(new PaisApplicationModel(pais)))
-		this.editarNombre(paisSeleccionadoForm)
-		this.addChild(paisSeleccionadoForm)
+	def mostrarListaVillanos(Form<Juego> form) {
+		val listView = new XListView("villanos")
+		listView.populateItem = [ item |
+			item.model = item.modelObject.asCompoundModel
+			item.addChild(new Label("nombre"))
+			item.addChild(
+				new XButton("eliminar").onClick = [ |
+					juegoAppModel.villanoSeleccionado = item.modelObject
+					juegoAppModel.eliminarVillano()
+				]
+			)
+			item.addChild(
+				new XButton("editar").onClick = [ |
+					
+				])
+		]
+		form.addChild(listView)
 	}
 	
-	def editarNombre(Form<PaisApplicationModel> form) {
-		form.addChild(new TextField("paisModel.nombre"))
+	def nuevoVillanoForm(Form<Juego> form) {
+			form.addChild(new XButton("nuevo").onClick = [|form.modelObject.agregarVillano(new Villano("*Definir nombre*"))])
 	}
-
-
-
+	
+//	def editarNombre(Form<PaisApplicationModel> form) {
+//		form.addChild(new TextField("paisModel.nombre"))
+//	}
 //	def mostrarCarateristicasPaisForm(Form<PaisApplicationModel> form) {
 //		val listView = new XListView("paisElegido.caracteristicas")
 //		form.addChild(listView)
