@@ -61,23 +61,23 @@
 									<button class="btn btn-danger" wicket:id="eliminar">Eliminar</button>
 								</td>
 								<td>
-									<button class="btn btn-warning" >Editar</button>
-									<!-- AGREGAR ID AL BOTON DE EDITAR-> wicket:id="eliminar" -->
-									
+									<button class="btn btn-warning" wicket:id="editar" >Editar</button>
+								
 								</td>
 								
 							</tr>
 							
 						</tbody>
 					</table>
-				</form>
-			<button type="button" class="btn btn-primary">Agregar Pais</button>
+				<button class="btn btn-primary" wicket:id="nuevo">Agregar Pais</button>
+			</form>
 		</div> <!-- Cierra Column de listas de paises-->
 		
 		<div class="col-md-6">
+			<form wicket:id="paisSeleccionadoForm">
 			<div class="alert alert-success" role="alert">Nombre</div>
-			<input type="text" /> <!-- wicket:id="nombrePais" --> 
-			
+			<input type="text" wicket:id="paisModel.nombre" /> 
+			</form>
 			<div class="alert alert-success" role="alert">Caracteristicas</div>
 			<ul class="list-group">
 			</ul>
@@ -87,7 +87,7 @@
 			</button>
 			
 			<div class="alert alert-success" role="alert">Conexiones</div>
-			<form>  <!-- wicket:id="paisesJuegoForm" -->
+<!-- 			<form>  wicket:id="paisesJuegoForm" -->
 					<table class="table table-hover">
 						<thead>
 						</thead>
@@ -102,11 +102,11 @@
 							</tr>
 						</tbody>
 					</table>
-				</form>
+<!-- 				</form> -->
 				<select class="selectpicker"></select>
 				<button type="button" class="btn btn-default btn-lg">
   					<span class="glyphicon glyphicon-plus"></span>
-				</button>
+				</button> 
 			</div> <!-- Cierra 2 Column -->						
 			<button type="button" class="btn btn-success">Aceptar</button>
 	</div> <!-- Cierra ROW -->
