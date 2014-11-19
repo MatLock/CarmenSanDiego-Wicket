@@ -43,7 +43,6 @@
 	   <li><a href="#tabs-1">Mapamundi</a></li>
 	   <li><a href="#tabs-2">Expedientes</a></li>
 	</ul>
-
 	  	<div id="tabs-1">
 		<div class ="row">
 			<div class="col-md-6">	
@@ -74,39 +73,76 @@
 		</div> <!-- Cierra Column de listas de paises-->
 		
 		<div class="col-md-6">
-
+			<form wicket:id="paisSeleccionadoForm"> 
 			<div class="alert alert-success" role="alert">Nombre</div>
-			<input type="text" /> <!--  wicket:id="paisModel.nombre"-->  
-
-			<div class="alert alert-success" role="alert">Caracteristicas</div>
-			<ul class="list-group">
-			</ul>
-			<input type="text" />
-			<button type="button" class="btn btn-default btn-lg">
-  				<span class="glyphicon glyphicon-plus"></span>
-			</button>
-			
-			<div class="alert alert-success" role="alert">Conexiones</div>
-<!-- 			<form>  wicket:id="paisesJuegoForm" -->
-					<table class="table table-hover">
+			<input type="text"    wicket:id="paisSeleccionado.nombre"  />
+<!-- 			<div class="alert alert-success" role="alert">Caracteristicas</div> -->
+<!-- 			<ul class="list-group" wicket:id="paisSeleccionado.caract"> -->
+<!-- 			</ul> -->
+			<table class="table table-hover">
 						<thead>
+							<tr>
+								<th id="main">Caracteristicas</th>
+							</tr>
 						</thead>
 						<tbody>
-							<tr>  <!-- wicket:id="conexiones" -->
-								<td></td> <!--  wicket:id="nombre" -->
-								<td>
-									<div>
-										<button class="btn btn-danger">Eliminar</button><!-- wicket:id="eliminar" --> 
-									</div>
-								</td>
+							<tr wicket:id="paisSeleccionado.caract">
+								<td><span wicket:id="descripcion">unaDescripcion</span></td>
 							</tr>
 						</tbody>
-					</table>
-<!-- 				</form> -->
-				<select class="selectpicker"></select>
+			</table>
+			<input type="text">
 				<button type="button" class="btn btn-default btn-lg">
   					<span class="glyphicon glyphicon-plus"></span>
-				</button> 
+				</button>
+<!-- 			<input type="text" wicket:id="valorAAgregar"  /> -->
+<!-- 			<button type="button" class="btn btn-default btn-lg" wicket:id="agregarCaract" > -->
+<!--   				<span class="glyphicon glyphicon-plus"></span> -->
+<!-- 			</button> -->
+			
+			<table class="table table-hover">
+						<thead>
+							<tr>
+								<th id="main">Conexiones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="paisSeleccionado.conexiones">
+								<td><span wicket:id="nombre">Nombre de la conexion</span></td>
+							<td>
+									<button class="btn btn-warning" wicket:id="eliminarConexion" >Eliminar</button>
+								
+							</td>
+							</tr>
+						</tbody>
+			</table>
+<!-- 		        <div> -->
+<!-- 			        	<select wicket:id="conexionesJuego"> -->
+			           			
+<!-- 			            </select> -->
+<!--                 	</div> -->
+<!-- 				<button type="button" class="btn btn-default btn-lg"> -->
+<!--   					<span class="glyphicon glyphicon-plus"></span> -->
+<!-- 				</button>  -->
+
+			<table class="table table-hover">
+						<thead>
+							<tr>
+								<th id="main">Lugares de interes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="paisSeleccionado.lugares">
+								<td><span wicket:id="nombre">Nombre del lugar</span></td>
+							<td>
+									<button class="btn btn-warning" wicket:id="eliminarLugar" >Eliminar</button>
+								
+							</td>
+							</tr>
+						</tbody>
+			</table>
+			
+ 			</form> 
 			</div> <!-- Cierra 2 Column -->						
 			<button type="button" class="btn btn-success">Aceptar</button>
 	</div> <!-- Cierra ROW -->
@@ -142,11 +178,11 @@
    	  
    	  
    	  <div class="col-md-6">
+   	  		<form wicket:id="villanoSeleccionadoForm">
 			<div class="alert alert-success" role="alert">Nombre</div>
-			<input type="text" /> <!-- wicket:id="nombreVillano" --> 
+			<input type="text" wicket:id="villanoSeleccionado.nombre"/>  
 			
-			
-				<div class="alert alert-success" role="alert">Sexo</div>
+			<div class="alert alert-success" role="alert">Sexo</div>
 			<label class="checkbox-inline">
   				<input type="checkbox" id="checkboxEnLinea1" value="opcion_1"> Masculino
 			</label>
@@ -154,53 +190,49 @@
   				<input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> Femenino
 			</label>
 			
-			<div class="alert alert-success" role="alert">Señas</div>
-			<form>  <!-- wicket:id="paisesJuegoForm" -->
-					<table class="table table-hover">
+			<table class="table table-hover">
 						<thead>
+							<tr>
+								<th id="main">Señas</th>
+							</tr>
 						</thead>
 						<tbody>
-							<tr>  <!-- wicket:id="señas" -->
-								<td></td> 
-								<td>
-									<div>
-										<button class="btn btn-danger">Eliminar</button><!-- wicket:id="eliminar" --> 
-									</div>
-								</td>
+							<tr wicket:id="villanoSeleccionado.senias">
+								<td><span wicket:id="descripcion">Señas</span></td>
+							<td>
+									<button class="btn btn-warning" wicket:id="eliminarSenia" >Eliminar</button>
+								
+							</td>
 							</tr>
 						</tbody>
-					</table>
-				</form>
-				
+			</table>
+			
 				<input type="text" />
 					<button type="button" class="btn btn-default btn-lg">
   						<span class="glyphicon glyphicon-plus"></span>
 					</button>
 				
-				
-				
-				
-			<div class="alert alert-success" role="alert">Hobbies</div>
-			<form>  <!-- wicket:id="villanosJuegoForm" -->
-					<table class="table table-hover">
+			<table class="table table-hover">
 						<thead>
+							<tr>
+								<th id="main">Hobbies</th>
+							</tr>
 						</thead>
 						<tbody>
-							<tr>  <!-- wicket:id="hobbies" -->
-								<td></td> 
-								<td>
-									<div>
-										<button class="btn btn-danger">Eliminar</button><!-- wicket:id="eliminarHobbie" --> 
-									</div>
-								</td>
+							<tr wicket:id="villanoSeleccionado.hobbie">
+								<td><span wicket:id="descripcion">Nombre del lugar</span></td>
+							<td>
+									<button class="btn btn-warning" wicket:id="eliminarHobbie" >Eliminar</button>
+								
+							</td>
 							</tr>
 						</tbody>
-					</table>
-				</form>
+				</table>	
 				<input type="text">
 				<button type="button" class="btn btn-default btn-lg">
   					<span class="glyphicon glyphicon-plus"></span>
 				</button>
+				</form>
 				<button type="button" class="btn btn-success">Aceptar</button>
 			</div> <!-- Cierra 2 Column -->						
 		 </div><!-- Cierra Row de villanos -->
