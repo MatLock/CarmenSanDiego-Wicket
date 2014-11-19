@@ -13,6 +13,7 @@ import org.uqbar.wicket.xtend.XForm
 import org.uqbar.wicket.xtend.XListView
 import pais.Pais
 import persona.Villano
+import pais.Caracteristica
 
 class MapamundiView extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -84,15 +85,17 @@ class MapamundiView extends WebPage {
 		form.addChild(listView)
 		
 		//Casillero y boton para agregar caracteristicas.
-//		
-//
-//		val TextField<String> texto = new TextField<String>("valorAAgregar")
-//		val Caracteristica valor = new Caracteristica(texto.toString)
-//		form.addChild(new XButton("agregarCaract").onClick = [ |
-//				juegoAppModel.caracteristicaAAgregar = valor
-//				juegoAppModel.agregarCaract
-//			]	)
-//		form.addChild(texto)
+		
+
+		val TextField<String> texto = new TextField<String>("valorAAgregar")
+		//val Caracteristica valor = new Caracteristica(texto.input)
+		form.addChild(texto)
+		form.addChild(new XButton("agregarCaract").onClick = [ |
+		val asd = texto.input
+			    print(asd)
+				juegoAppModel.valorAAgregar = null
+				juegoAppModel.agregarCaract
+			]	)
 		
 	}
 	
