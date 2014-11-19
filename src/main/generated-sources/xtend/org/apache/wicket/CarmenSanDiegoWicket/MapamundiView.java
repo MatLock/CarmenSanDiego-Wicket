@@ -10,7 +10,6 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods;
@@ -123,14 +122,11 @@ public class MapamundiView extends WebPage {
       };
       listView.setPopulateItem(_function);
       this._wicketExtensionFactoryMethods.addChild(form, listView);
-      final TextField<String> texto = new TextField<String>("valorAAgregar");
+      final TextField<String> texto = new TextField<String>("valor");
       this._wicketExtensionFactoryMethods.addChild(form, texto);
       XButton _xButton = new XButton("agregarCaract");
       final Procedure0 _function_1 = new Procedure0() {
         public void apply() {
-          final String asd = texto.getInput();
-          InputOutput.<String>print(asd);
-          MapamundiView.this.juegoAppModel.setValorAAgregar(null);
           MapamundiView.this.juegoAppModel.agregarCaract();
         }
       };
@@ -293,7 +289,17 @@ public class MapamundiView extends WebPage {
         }
       };
       listView.setPopulateItem(_function);
-      _xblockexpression = this._wicketExtensionFactoryMethods.addChild(form, listView);
+      this._wicketExtensionFactoryMethods.addChild(form, listView);
+      final TextField<String> texto = new TextField<String>("valor");
+      this._wicketExtensionFactoryMethods.addChild(form, texto);
+      XButton _xButton = new XButton("agregarSenia");
+      final Procedure0 _function_1 = new Procedure0() {
+        public void apply() {
+          MapamundiView.this.juegoAppModel.agregarSenia();
+        }
+      };
+      XButton _setOnClick = _xButton.setOnClick(_function_1);
+      _xblockexpression = this._wicketExtensionFactoryMethods.addChild(form, _setOnClick);
     }
     return _xblockexpression;
   }
@@ -322,7 +328,17 @@ public class MapamundiView extends WebPage {
         }
       };
       listView.setPopulateItem(_function);
-      _xblockexpression = this._wicketExtensionFactoryMethods.addChild(form, listView);
+      this._wicketExtensionFactoryMethods.addChild(form, listView);
+      final TextField<String> texto = new TextField<String>("valorA");
+      this._wicketExtensionFactoryMethods.addChild(form, texto);
+      XButton _xButton = new XButton("agregarHobbie");
+      final Procedure0 _function_1 = new Procedure0() {
+        public void apply() {
+          MapamundiView.this.juegoAppModel.agregarHobbie();
+        }
+      };
+      XButton _setOnClick = _xButton.setOnClick(_function_1);
+      _xblockexpression = this._wicketExtensionFactoryMethods.addChild(form, _setOnClick);
     }
     return _xblockexpression;
   }

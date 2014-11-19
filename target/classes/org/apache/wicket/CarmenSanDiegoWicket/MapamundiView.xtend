@@ -14,6 +14,7 @@ import org.uqbar.wicket.xtend.XListView
 import pais.Pais
 import persona.Villano
 import pais.Caracteristica
+import org.apache.wicket.markup.html.form.DropDownChoice
 
 class MapamundiView extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -87,15 +88,12 @@ class MapamundiView extends WebPage {
 		//Casillero y boton para agregar caracteristicas.
 		
 
-		val TextField<String> texto = new TextField<String>("valorAAgregar")
-		//val Caracteristica valor = new Caracteristica(texto.input)
+		val TextField<String> texto = new TextField<String>("valor")
 		form.addChild(texto)
 		form.addChild(new XButton("agregarCaract").onClick = [ |
-		val asd = texto.input
-			    print(asd)
-				juegoAppModel.valorAAgregar = null
 				juegoAppModel.agregarCaract
-			]	)
+			]	
+			)
 		
 	}
 	
@@ -113,7 +111,7 @@ class MapamundiView extends WebPage {
 	}
 	
 //	def selectorConexion(Form<JuegoAppModel> form){
-//		form.addChild(new DropDownChoice<Juego>("conexionesJuego") => [
+//		form.addChild(new DropDownChoice<Juego>("conexiones") => [
 //			choices = loadableModel([| Juego.home.allInstances ])
 //			choiceRenderer = choiceRenderer([Juego j| j.conexiones ])
 //		])
@@ -179,7 +177,14 @@ class MapamundiView extends WebPage {
 					juegoAppModel.eliminarSeña()
 			]		)			
 		]
-			form.addChild(listView)		
+			form.addChild(listView)
+		
+		val TextField<String> texto = new TextField<String>("valor")
+		form.addChild(texto)
+		form.addChild(new XButton("agregarSenia").onClick = [ |
+				juegoAppModel.agregarSenia
+			]	
+			) 
 	}
 	
 	def editarHobbie(Form<JuegoAppModel> form) {
@@ -193,6 +198,12 @@ class MapamundiView extends WebPage {
 			]		)			
 		]
 			form.addChild(listView)		
+		val TextField<String> texto = new TextField<String>("valorA")
+		form.addChild(texto)
+		form.addChild(new XButton("agregarHobbie").onClick = [ |
+				juegoAppModel.agregarHobbie
+			]	
+			) 
 	}
 
 }
